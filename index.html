@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <!-- https://cdnjs.com/libraries/twitter-bootstrap/5.0.0-beta1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css"
+    />
+
+    <!-- Icons: https://getbootstrap.com/docs/5.0/extend/icons/ -->
+    <!-- https://cdnjs.com/libraries/font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+
+    <title>form validation!</title>
+  </head>
+<body>
+   <div class="container">
+       <div class="row">
+           <h2 class="text-center my-3 ">Form Validation</h2>
+           <div class="col-md-8 mx-auto my-3">
+               <form onsubmit="return validation()">
+                   <label class="form-group ">Username :- </label>
+                   <input type="text" placeholder="enter username" id="user" class="form-control">
+                   <span class="text-danger font-weight-bold " id="userErr" class="form-control"></span>
+                   <br>
+                   <label class="form-group ">Email:- </label>
+                   <input type="text" placeholder="enter email" id="email" class="form-control">
+                   <span class="text-danger font-weight-bold " id="emailErr"></span>
+                   <br>
+                   <label class="form-group">Password :- </label>
+                   <input type="text" placeholder="enter password" id="pass" class="form-control">
+                   <span class="text-danger font-weight-bold " id="passErr"></span>
+                   <br>
+                   <label class="form-group ">Confirm Password :- </label>
+                   <input type="text" placeholder="enter confirm password" id="cPass" class="form-control">
+                   <span class="text-danger font-weight-bold " id="cPassErr"></span>
+                   <br>
+                   <label class="form-group">Phone Number :- </label>
+                   <input type="text" placeholder="enter phone number" id="num" class="form-control">
+                   <span class="text-danger font-weight-bold " id="numErr"></span>
+
+                   <button type="submit" class="btn btn-outline-secondary my-4 form-control">Submit</button>
+                   
+               </form>
+
+           </div>
+       </div>
+
+   </div>
+
+
+<script>
+    function validation(){
+       var username= document.getElementById("user").value;
+       var email= document.getElementById("email").value;
+       var password= document.getElementById("pass").value;
+       var cPassword= document.getElementById("cPass").value;
+      var number= document.getElementById("num").value;
+
+       var userExp=/^[A-Za-z]{3,16}$/;
+       var emailExs=/^[A-Za-z._]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+       var passExs=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+       var numExs=/^[789][0-9]{9}$/;
+
+
+       if(userExp.test(username)){
+           document.getElementById('userErr').innerHTML="";
+       }
+       else{
+           document.getElementById('userErr').innerHTML="username invalid";
+           return false;
+       }
+          
+
+    //email validation
+
+    if(emailExs.test(email)){
+           document.getElementById('emailErr').innerHTML="";
+       }
+       else{
+           document.getElementById('emailErr').innerHTML="username invalid";
+           return false;
+       }
+
+
+
+       if(passExs.test(password))
+       {
+           document.getElementById('passErr').innerHTML="";
+       }
+       else{
+           document.getElementById('passErr').innerHTML="password invalid..";
+           return false;
+       }
+
+       if(password.match(cPassword))
+       {
+           document.getElementById('cPassErr').innerHTML="";
+       }
+       else{
+           document.getElementById('cPassErr').innerHTML="password not match..";
+           return false;
+       }
+     
+
+       if(numExs.test(number))
+       {
+           document.getElementById('numErr').innerHTML="";
+       }
+       else{
+           document.getElementById('numErr').innerHTML="number invalid..";
+           return false;
+       }
+     
+
+
+
+    }
+
+    
+</script>
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <!-- https://cdnjs.com/libraries/popper.js/2.5.4 -->
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js"
+    ></script> -->
+
+    <!-- More: https://getbootstrap.com/docs/5.0/getting-started/introduction/ -->
+  </body>
+</html>
